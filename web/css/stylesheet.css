@@ -3,7 +3,11 @@
 	background-image: url('../Resources/photo_jo_rio_2016_14042016.jpg');
 	background-size: cover;
 }
-
+.header-detail {
+	height: 536px;
+	background-image: url('../Resources/natation.jpg');
+	background-size: cover;
+}
 .connect-area{
 	float: right;
 }

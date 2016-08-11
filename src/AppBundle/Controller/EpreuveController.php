@@ -95,12 +95,12 @@ class EpreuveController extends Controller
     /**
      * Finds and displays a Epreuve details.
      *
-     * @Route("/{id}", name="epreuve_detail")
+     * @Route("/detail/{id}", name="epreuve_detail")
      * @Method("GET")
      */
-    public function showAction(Epreuve $epreuve)
+    public function detailAction(Epreuve $epreuve)
     {
-        return $this->render('epreuve/show.html.twig', array(
+        return $this->render('epreuve/detail.html.twig', array(
             'epreuve' => $epreuve,
         ));
     }
