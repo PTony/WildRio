@@ -16,6 +16,7 @@ class ParticipantType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('epreuveId')
         ;
     }
     

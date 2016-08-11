@@ -17,11 +17,17 @@
                     <h4 class="modal-title" id="myModalLabel">Connexion</h4>
                   </div>
                   <div class="modal-body">
+                    <div>
+                        <ul>
+                            <li>role=admin, login=tony, pwd=entrer</li>
+                            <li>role=user, login=toto, pwd=entrer</li>
+                            <li>role=user, login=tata, pwd=entrer</li>
+                        </ul>
+                    </div>                    
                     {{ render(controller("FOSUserBundle:Security:login")) }}
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>

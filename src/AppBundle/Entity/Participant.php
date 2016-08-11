@@ -28,6 +28,14 @@ class Participant
      */
     private $name;
 
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Epreuve")
+     * @ORM\JoinColumn(name="epreuve_id", referencedColumnName="id")
+     */
+    private $epreuveId; 
+
 
     /**
      * Get id
@@ -61,4 +69,32 @@ class Participant
     {
         return $this->name;
     }
+
+/**********************************
+* ownerId
+*/
+    /**
+     * Get epreuveID
+     *
+     * @return integer 
+     */
+    public function getEpreuveId()
+    {
+        return $this->epreuveId;
+    }
+
+    /**
+     * Set epreuveId
+     *
+     * @param integer $epreuveId
+     * @return Epreuve
+     */
+    public function setEpreuveId($epreuveId)
+    {
+        $this->epreuveId = $epreuveId;
+
+        return $this;
+    }
+/*****************************************/
+
 }

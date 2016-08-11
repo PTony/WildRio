@@ -36,7 +36,7 @@ class EpreuveController extends Controller
     /**
      * Lists last 3 Epreuve entities.
      *
-     * @Route("/", name="epreuve_index")
+     * @Route("/", name="epreuve_last3")
      * @Method("GET")
      */
     public function last3Action()
@@ -86,6 +86,7 @@ class EpreuveController extends Controller
     {
         $deleteForm = $this->createDeleteForm($epreuve);
 
+
         return $this->render('epreuve/show.html.twig', array(
             'epreuve' => $epreuve,
             'delete_form' => $deleteForm->createView(),
@@ -99,9 +100,13 @@ class EpreuveController extends Controller
      * @Method("GET")
      */
     public function detailAction(Epreuve $epreuve)
-    {
+    {   
+        $em = $this->getDoctrine()->getManager();
+
+        $participants = $em->getRepository('AppBundle:Participant')->findByEpreuveId($epreuve->getId());
         return $this->render('epreuve/detail.html.twig', array(
             'epreuve' => $epreuve,
+            'participants' => $participants
         ));
     }
 

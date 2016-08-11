@@ -47,3 +47,7 @@
  .footer img{
  	border-radius: 64px;
  }
+
+ .float-right {
+ 	float: right;
+ }

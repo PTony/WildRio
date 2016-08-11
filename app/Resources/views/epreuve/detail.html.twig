@@ -9,24 +9,16 @@
 <div class="container">
     <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 
-    <table class="table">
-        <tr>
-            <td>paticipant.nom</td>
-            <td><a role="button" class="btn btn-sucess">Voter</a></td>
-        </tr>
-        <tr>
-            <td>paticipant.nom</td>
-            <td><a role="button" class="btn btn-sucess">Voter</a></td>
-        </tr>
-        <tr>
-            <td>paticipant.nom</td>
-            <td><a role="button" class="btn btn-sucess">Voter</a></td>
-        </tr>
-        <tr>
-            <td>paticipant.nom</td>
-            <td><a role="button" class="btn btn-sucess">Voter</a></td>
-        </tr>
-    </table>
+    {% if is_granted("ROLE_ADMIN") %}
+        <h3>Ajouter un participant</h3>
+
+    {% endif %}
+    <ul class="list-group">
+    {% for participant in participants %}
+        <li class="list-group-item">{{ participant.name }} <span class="float-right"><button type="button" class="btn btn-success" data-dismiss="modal">Voter</button></span>
+        </li>
+    {% endfor %}
+    </ul>
     <div class="row">
         <div class="col-md-9">
             <div class="progress">
