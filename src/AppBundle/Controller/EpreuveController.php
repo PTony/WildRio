@@ -34,6 +34,23 @@ class EpreuveController extends Controller
     }
 
     /**
+     * Lists last 3 Epreuve entities.
+     *
+     * @Route("/", name="epreuve_index")
+     * @Method("GET")
+     */
+    public function last3Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $epreuves = $em->getRepository('AppBundle:Epreuve')->findBY( array(), array('id'=>'DESC'), 3, 0);
+
+        return $this->render('epreuve/last3.html.twig', array(
+            'epreuves' => $epreuves,
+        ));
+    }
+
+    /**
      * Creates a new Epreuve entity.
      *
      * @Route("/new", name="epreuve_new")
@@ -74,6 +91,20 @@ class EpreuveController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    /**
+     * Finds and displays a Epreuve details.
+     *
+     * @Route("/{id}", name="epreuve_detail")
+     * @Method("GET")
+     */
+    public function showAction(Epreuve $epreuve)
+    {
+        return $this->render('epreuve/show.html.twig', array(
+            'epreuve' => $epreuve,
+        ));
+    }
+
 
     /**
      * Displays a form to edit an existing Epreuve entity.
